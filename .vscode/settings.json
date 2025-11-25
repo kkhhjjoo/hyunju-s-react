@@ -1,6 +1,0 @@
-{
-  "files.readonlyInclude": {
-    "sample/**": true,
-    "workspace-ins/**": true
-  }
-}
