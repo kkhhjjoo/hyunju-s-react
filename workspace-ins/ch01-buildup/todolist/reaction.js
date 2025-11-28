@@ -24,7 +24,12 @@ const reaction = {
       }else if(typeof child === 'function'){
         child = child();
       }
-      elem.appendChild(child);
+
+      if(Array.isArray(child)){ // child가 배열일 경우
+        child.forEach(c => elem.appendChild(c));
+      }else{
+        elem.appendChild(child);
+      }
     }
 
     // 요소 노드 반환
