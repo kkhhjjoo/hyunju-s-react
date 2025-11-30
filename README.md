@@ -3,7 +3,7 @@
 
 # 1. 목차
 
-## 1장 리액트 빌드업
+## 1장 리액트 빌드업 
 - [ch01-buildup](./workspace-ins/ch01-buildup)
 
 ## 2장 리액트 시작하기
@@ -79,10 +79,28 @@
 <summary><h3>2일차(2025.11.26 수)</h3></summary>
 
 #### 오전(3시간)
+  - 🔊 [2. 리액트 개발에 자주 사용하는 자바스크립트 문법](./workspace-ins/ch01-buildup#2-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EA%B0%9C%EB%B0%9C%EC%97%90-%EC%9E%90%EC%A3%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%AC%B8%EB%B2%95)
+    + 각자 공부
 
+  * Counter(라이브리리 개발) 작성
+    - 💻 [01 HTML + JS](./workspace-ins/ch01-buildup/counter/01/index.html)
+      + workspace/ch01-buildup/counter/sample 폴더 복사해서 01 폴더 생성
+    - 💻 [02 HTML 대신 JS로 UI 구성](./workspace-ins/ch01-buildup/counter/02/index.html)
+      + workspace/ch01-buildup/counter/01 폴더 복사해서 02 폴더 생성
 
-#### 오후(3시간)
-
+#### 오후(4시간)
+* 02 SPA(Single Page Application)
+  * Counter(라이브리리 개발) 작성
+    - 💻 [03 createElement() 함수 만들기](./workspace-ins/ch01-buildup/counter/03/index.html)
+      + workspace/ch01-buildup/counter/02 폴더 복사해서 03 폴더 생성
+    - 💻 [04 createElement() 함수 하나로 통합](./workspace-ins/ch01-buildup/counter/04/index.html)
+      + workspace/ch01-buildup/counter/03 폴더 복사해서 04 폴더 생성
+    - 💻 [05 createRoot(), render() 함수 만들기](./workspace-ins/ch01-buildup/counter/05/index.html)
+      + workspace/ch01-buildup/counter/04 폴더 복사해서 05 폴더 생성
+    - 💻 [06 UI 구성 요소별 각각의 함수로 분리(컴포넌트로 만들기)](./workspace-ins/ch01-buildup/counter/06/index.html)
+      + workspace/ch01-buildup/counter/05 폴더 복사해서 06 폴더 생성
+    - 💻 [07 상태(데이터) 변경시 자동으로 UI 리렌더링](./workspace-ins/ch01-buildup/counter/07/index.html)
+      + workspace/ch01-buildup/counter/06 폴더 복사해서 07 폴더 생성
 
 </details>
 
@@ -90,10 +108,50 @@
 <summary><h3>3일차(2025.11.28 금)</h3></summary>
 
 #### 오전(3시간)
-
+* 02 SPA(Single Page Application)
+  * Todo List 작성(vanillaJS + Lib)
+    - 💻 [06 Reaction.createElement() 사용해서 UI 구성](./workspace-ins/ch01-buildup/todolist/06/index.html)
+      + workspace/ch01-buildup/todolist/06 폴더 복사해서 07 폴더 생성
+      + workspace/ch01-buildup/counter/07/reaction.js를 workspace/ch01-buildup/todolist 폴더에 복사
+    - 💻 [07 UI 구성 요소별 각각의 함수로 분리(컴포넌트로 만들기)](./workspace-ins/ch01-buildup/todolist/07/index.html)
+      + workspace/ch01-buildup/todolist/06 폴더 복사해서 07 폴더 생성
 
 #### 오후(3시간)
+* 02 SPA(Single Page Application)
+  * Todo List 작성(vanillaJS + Lib)
+    - 💻 [08 상태(데이터) 변경시 화면 리렌더링](./workspace-ins/ch01-buildup/todolist/08/index.html)
+      + workspace/ch01-buildup/todolist/07 폴더 복사해서 08 폴더 생성
+* 03 React
+  - 💻 [01 Counter - React로 구현(React.createElement)](./workspace-ins/ch01-buildup/react/01/index.html)
+    + workspace/ch01-buildup/react/sample/counter 폴더 복사해서 workspace/ch01-buildup/react/01 폴더 생성
+  - 💻 [02 Counter - React로 구현(JSX)](./workspace-ins/ch01-buildup/react/02/index.html)
+    + workspace/ch01-buildup/react/01 폴더 복사해서 workspace/ch01-buildup/react/02 폴더 생성
 
+#### 과제
+```
+## 주말 과제입니다.
+### 03 Todo List - React로 UI 구성(JSX)
+- workspace/ch01-buildup/react/sample/todolist 폴더 복사해서 03 폴더 생성
+- App 함수 만들어서 JSX로 화면 출력
+  - 닫는 태그 필수: `<input> -> <input />`
+  - 속성명은 카멜케이스로 작성: `autofocus -> autoFocus`
+  - class는 JS의 키워드이므로 사용 못함: `class -> className`
+
+### 04 Todo List - React 컴포넌트 분리
+- workspace/ch01-buildup/react/03 폴더 복사해서 04 폴더 생성
+- workspace/ch01-buildup/todolist/07 예제 참고해서 컴포넌트 분리
+  - Header
+  - Footer
+  - Todo
+  - TodoInput
+  - TodoList
+  - TodoItem
+  - App
+
+### 05 Todo List - React 기능 추가
+- workspace/ch01-buildup/react/04 폴더 복사해서 05 폴더 생성
+- workspace/ch01-buildup/todolist/07 예제 참고해서 기능 구현
+```
 
 </details>
 </details>
