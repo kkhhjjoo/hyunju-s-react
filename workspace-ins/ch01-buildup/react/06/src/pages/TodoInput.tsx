@@ -1,4 +1,8 @@
-function TodoInput({ addItem }){
+interface TodoInputProps {
+  addItem: (title: string) => void;
+}
+
+function TodoInput({ addItem }: TodoInputProps){
   // 추가 버튼 클릭 이벤트 핸들러
   const handleAdd = () => {
     console.log('추가 버튼 클릭');

@@ -1,3 +1,7 @@
+import { useState } from "react";
+import TodoInput from "./TodoInput";
+import TodoList from "./TodoList";
+
 function Todo(){
   // 샘플 목록
   const initItemList = [
@@ -7,10 +11,10 @@ function Todo(){
   ];
 
   // State
-  const [ itemList, setItemList ] = React.useState(initItemList);
+  const [ itemList, setItemList ] = useState(initItemList);
 
   // 할일 추가
-  function addItem(title){
+  function addItem(title: string){
     console.log('할일 추가');
     // 데이터 갱신, itemList에 item 추가
     // num, title, done 속성을 가진 item 객체 생성
@@ -30,7 +34,7 @@ function Todo(){
   }
 
   // 완료/미완료 처리
-  function toggleDone(num){
+  function toggleDone(num: number){
     console.log(num, '완료/미완료');
 
     // let selectedItem = itemList.find(item => item.num === num);
@@ -42,7 +46,7 @@ function Todo(){
   }
 
   // 할일 삭제
-  function deleteItem(num){
+  function deleteItem(num: number){
     console.log(num, '할일 삭제');
     // 데이터 갱신, itemList에서 num에 해당하는 item 삭제
     // 원본 배열에서 작업
