@@ -55,7 +55,7 @@ useEffect(setup, dependencies?);
   - 컴포넌트가 마운트될 때는 `dependencies` 여부와 상관없이 `setup`이 호출됨
   - `dependencies`를 생략하면, 컴포넌트가 업데이트될 때 항상 `setup`이 호출됨
   - `dependencies`에 빈 배열을 지정하면, 컴포넌트가 업데이트될 때 호출되지 않음
-  - `dependencies`를 지정하면, 컴포넌트가 업데이트 될 때 지정한 값 중 하나라도 수정되었을 경우에만 `setup` 함수가 호출됨 
+  - `dependencies`를 지정하면, 컴포넌트가 업데이트 될 때 지정한 값 중 하나라도 수정되었을 경우에만 `setup` 함수가 호출됨
 
 ## 1.3 useReducer
 
@@ -361,33 +361,6 @@ export default defineConfig({
 * 리액트의 규칙 참고: https://ko.react.dev/reference/rules
 
 ## 2.5 개발 도구 지원
-
-### ESLint 통합
-* eslint-plugin-react-hooks 6.0 이상에서 지원
-```bash
-npm install -D eslint-plugin-react-hooks@^6.0.0-rc.1
-```
-
-```js
-// eslint.config.js
-import * as reactHooks from 'eslint-plugin-react-hooks';
-// ...
-
-export default tseslint.config(
-  // ...
-  {
-    // ...
-    plugins: {
-      'react-hooks': reactHooks,
-      // ...
-    },
-    rules: {
-      ...reactHooks.configs.recommended.rules,
-      // ...
-    },
-  },
-)
-```
 
 ### React DevTools
 * 브라우저 개발자 도구의 Components 탭에서 컴파일러로 최적화된 컴포넌트는 "Memo ✨" 배지로 표시
