@@ -1,15 +1,13 @@
-import Header from '@/components/Header';
+import { RouterProvider } from 'react-router';
 import './App.css';
-import Footer from '@/components/Footer';
-import Home from '@/pages/Home';
+import router from '@/routes';
 
 function App(){
   return (
     <>
       <div className="todoapp">
-        <Header />
-        <Home />
-        <Footer />
+        {/* react-router가 router를 기준으로 선택한 컴포넌트를 렌더링 */}
+        <RouterProvider router={ router } />
       </div>
     </>
   );
