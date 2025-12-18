@@ -1,3 +1,4 @@
+import Pagination from "@/pages/Pagination";
 import TodoListItem from "@/pages/TodoListItem";
 import { Link } from "react-router";
 
@@ -38,6 +39,9 @@ function TodoList() {
         <ul className="todolist">
           { list }
         </ul>
+
+        <Pagination />
+        
       </div>
     </div>
   );

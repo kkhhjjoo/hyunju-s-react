@@ -22,7 +22,7 @@ function Pagination() {
   return (
     <div>
       <button onClick={handlePrevPage}>이전</button>
-      <span>현재 페이지: {page}</span>
+      <span>{page}</span>
       <button onClick={handleNextPage}>다음</button>
     </div>
   );
