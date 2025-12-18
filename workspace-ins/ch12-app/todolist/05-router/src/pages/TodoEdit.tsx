@@ -1,6 +1,8 @@
-import { Link, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 function TodoEdit() {
+  // 페이지 이동에 사용
+  const navigate = useNavigate();
   
   const { _id } = useParams();
 
@@ -18,8 +20,8 @@ function TodoEdit() {
           <label htmlFor="done">완료 :</label>
           <input type="checkbox" id="done" checked />
           <br />
-          <Link to={`/todo/list/${_id}`}>저장</Link>
-          <Link to={`/todo/list/${_id}`}>취소</Link>
+          <button type="button" onClick={ () => navigate(-1) }>저장</button>
+          <button type="reset" onClick={ () => navigate(`/todo/list/${_id}`) }>취소</button>
         </form>
       </div>
     </>
