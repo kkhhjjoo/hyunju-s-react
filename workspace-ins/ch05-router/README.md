@@ -513,7 +513,7 @@ const router = createBrowserRouter([
     return (
       <div>
         <h2>할일 상세 보기</h2>
-        <div>ID: {id}</div>
+        <div>ID: { _id }</div>
       </div>
     );
   }
