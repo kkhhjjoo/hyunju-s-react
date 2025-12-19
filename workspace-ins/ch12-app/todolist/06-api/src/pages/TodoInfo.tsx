@@ -1,4 +1,6 @@
+import { getTodoInfo } from "@/api/todo";
 import type { Todo } from "@/types/todo";
+import { useEffect } from "react";
 import { Link, Outlet, useLocation, useMatch, useParams } from "react-router";
 
 // 임시 데이터 - API 연동 전까지 사용할 더미 데이터
@@ -15,6 +17,10 @@ function TodoInfo() {
 
   // path가 '/list/:_id'로 지정하고 실제 URL이 '/list/3'일 때 useParams()는 { _id: '3' }을 반환
   const { _id } = useParams();
+
+  useEffect(() => {
+    getTodoInfo(_id!).then((result) => console.log(result));
+  }, [_id]);
 
   // 현재의 URL이 지정한 패턴의 URL과 일치하면 PathMatch 객체를, 일치하지 않으면 null을 반환
   const infoMatch = useMatch('/todo/list/:_id'); // 동적 세그먼트 지정 가능
