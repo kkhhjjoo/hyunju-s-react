@@ -782,7 +782,7 @@ const router = createBrowserRouter([
 
   // 할일 목록 조회
   export async function getTodoList(): Promise<TodoListRes> {
-    const res = await fetch(`${API_URL}/todolist?${query.toString()}`);
+    const res = await fetch(`${API_URL}/todolist`);
     const data = await res.json();
     console.log('getTodoList', data);
     if(!res.ok){
