@@ -50,7 +50,7 @@ export async function createTodo(formData: FormData): Promise<ResData<TodoInfoRe
 }
 
 // 할일 수정
-export async function updateTodo(_id: number, formData: FormData): Promise<ResData<TodoInfoRes>> {
+export async function updateTodo(_id: string, formData: FormData): Promise<ResData<TodoInfoRes>> {
   const body = {
     title: formData.get('title'),
     content: formData.get('content'),
@@ -74,7 +74,7 @@ export async function updateTodo(_id: number, formData: FormData): Promise<ResDa
 }
 
 // 할일 삭제
-export async function deleteTodo(_id: number): Promise<ResData<TodoInfoRes>> {
+export async function deleteTodo(_id: string): Promise<ResData<TodoInfoRes>> {
   const res = await fetch(`${API_URL}/todolist/${_id}`, {
     method: 'DELETE',
   });
