@@ -829,11 +829,15 @@ const router = createBrowserRouter([
 * routes.tsx
   ```tsx
   const router = createBrowserRouter([
-    { path: 'list', element: <TodoList />, loader: todoListLoader },
+    { 
+      path: 'list', 
+      loader: todoListLoader,
+      element: <TodoList />, 
+    },
     { 
       path: 'list/:_id', 
-      element: <TodoInfo />,
       loader: todoInfoLoader,
+      element: <TodoInfo />,
       children: [
         { path: 'edit', element: <TodoEdit /> }
       ]
@@ -1049,7 +1053,7 @@ const router = createBrowserRouter([
         <div className="todo">
           <Form method="post">
             <label htmlFor="title">제목 :</label>
-            <input type="text" id="title" name="title"autoFocus /><br />
+            <input type="text" id="title" name="title" autoFocus /><br />
             <label htmlFor="content">내용 :</label>
             <textarea id="content" name="content" cols={23} rows={5}></textarea><br />
             <button 
