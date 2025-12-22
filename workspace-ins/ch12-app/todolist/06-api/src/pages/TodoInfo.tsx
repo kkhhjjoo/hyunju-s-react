@@ -29,6 +29,9 @@ function TodoInfo() {
             <div>상태 : { data.item.done ? '완료' : '미완료' }</div>
             <div>작성일 : { data.item.createdAt }</div>
             <div>수정일 : { data.item.updatedAt }</div>
+            { data.item.category && <div>카테고리: { data.item.category }</div> }
+            { data.item.important && <div>중요함</div> }
+            { data.item.finishAt && <div>마감일: { data.item.finishAt }</div> }
             
             { infoMatch && 
               <>

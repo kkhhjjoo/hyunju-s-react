@@ -1,4 +1,5 @@
 import type { ResData, TodoInfoRes, TodoListRes } from "@/types/todo";
+import dayjs from "dayjs";
 
 const API_URL = 'https://fesp-api.koyeb.app/todo';
 
@@ -33,13 +34,25 @@ export async function getTodoInfo(_id: string) {
 
 // 할일 등록
 export async function createTodo(formData: FormData): Promise<ResData<TodoInfoRes>> {
-  const body = {
-    title: formData.get('title'),
-    content: formData.get('content'),
-  };
+  // const body = {
+  //   title: formData.get('title'),
+  //   content: formData.get('content'),
+  // };
+
+  const finishAt = formData.get('finishAt');
+  if(finishAt){
+    const formatFinishAt = dayjs(finishAt as string).format('YYYY.MM.DD HH:mm:ss');
+    formData.set('finishAt', formatFinishAt);
+  }else{
+    formData.delete('finishAt');
+  }
 
   // FormData를 일반 Object로 변환
-  // const body = Object.fromEntries(formData.entries());
+  const bodyRow = Object.fromEntries(formData.entries());
+  const body = {
+    ...bodyRow,
+    important: bodyRow.important === 'on',
+  };
 
   // https://github.com/FEBC-15/js/blob/main/docs/09.js_ajax.md#52-fetchresource-options
   const res = await fetch(`${API_URL}/todolist`, {
@@ -60,10 +73,19 @@ export async function createTodo(formData: FormData): Promise<ResData<TodoInfoRe
 
 // 할일 수정
 export async function updateTodo(_id: string, formData: FormData): Promise<ResData<TodoInfoRes>> {
+  const finishAt = formData.get('finishAt');
+  if(finishAt){
+    const formatFinishAt = dayjs(finishAt as string).format('YYYY.MM.DD HH:mm:ss');
+    formData.set('finishAt', formatFinishAt);
+  }else{
+    formData.delete('finishAt');
+  }
+
+  // FormData를 일반 Object로 변환
+  const bodyRow = Object.fromEntries(formData.entries());
   const body = {
-    title: formData.get('title'),
-    content: formData.get('content'),
-    done: formData.get('done') === 'on',
+    ...bodyRow,
+    important: bodyRow.important === 'on',
   };
 
   const res = await fetch(`${API_URL}/todolist/${_id}`, {

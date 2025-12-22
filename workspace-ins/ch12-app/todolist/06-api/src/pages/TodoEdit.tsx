@@ -1,5 +1,6 @@
 import type { Todo } from "@/types/todo";
-import { Form, useNavigate, useOutletContext, useParams } from "react-router";
+import dayjs from "dayjs";
+import { Form, useNavigate, useNavigation, useOutletContext, useParams } from "react-router";
 
 interface OutletContextProps {
   item: Todo;
@@ -15,6 +16,11 @@ function TodoEdit() {
   const { item } = useOutletContext<OutletContextProps>();
   console.log('item', item)
 
+  const navigation = useNavigation();
+  const isLoading = navigation.state === 'loading'; // loader 실행중
+  const isSubmitting = navigation.state === 'submitting'; // action 실행중
+  const isProcessing = isSubmitting || isLoading; // 처리중
+
   return (
     <>
       <h2>할일 수정</h2>
@@ -29,7 +35,24 @@ function TodoEdit() {
           <label htmlFor="done">완료 :</label>
           <input type="checkbox" id="done" name="done" defaultChecked={ item.done } />
           <br />
-          <button type="submit">수정</button>
+          <label htmlFor="category">카테고리</label>
+          <select id="category" name="category" defaultValue={ item.category } >
+            <option value=""></option>
+            <option value="study">공부</option>
+            <option value="hobby">취미</option>
+            <option value="etc">기타</option>
+          </select>
+          <br />
+          <label htmlFor="important">중요 :</label>
+          <input type="checkbox" id="important" name="important" defaultChecked={ item.important } />
+          <br />
+          <label htmlFor="finishAt">마감일 :</label>
+          <input type="datetime-local" id="finishAt" name="finishAt" defaultValue={ item.finishAt && dayjs(item.finishAt).format('YYYY-MM-DDTHH:mm') } />
+          <br />
+          <button 
+            type="submit"
+            disabled={isProcessing}
+          >{ isProcessing ? '수정중...' : '수정' }</button>
           <button type="reset" onClick={ () => navigate(`/todo/list/${_id}`, {state:{from:'edit', message:'수정 취소'}})}>취소</button>
         </Form>
       </div>
