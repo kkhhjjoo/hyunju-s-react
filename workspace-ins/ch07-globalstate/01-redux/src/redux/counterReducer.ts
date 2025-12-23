@@ -4,7 +4,7 @@ import { COUNTER_ACTION } from "@/redux/counterActionCreator";
 
 // 초기 상태 정의
 const initialState = {
-  count: 5
+  count: 5,
 };
 
 // Action의 타입

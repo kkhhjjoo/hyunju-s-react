@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 function Right3() {
   useEffect(()=>{
@@ -6,6 +7,8 @@ function Right3() {
   });
 
   // TODO 5. Store 사용
+  // Redux Store에 액션을 전달하기 위해 useDispatch 사용
+  const dispatch = useDispatch();
   
   return (
     <div>
