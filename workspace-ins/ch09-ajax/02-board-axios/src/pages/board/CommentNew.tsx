@@ -1,11 +1,11 @@
 import { getAxiosInstance } from "@/utils/axiosInstance";
 import { useState } from "react";
 
+const axiosInstance = getAxiosInstance();
+
 function CommentNew({ reload }: { reload: () => void }) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
-
-  const axiosInstance = getAxiosInstance();
 
   const requestAddComment = async (formData: FormData) => {
     // TODO 4: API 서버에 댓글 등록을 axios 라이브러리로 요청을 보낸다.

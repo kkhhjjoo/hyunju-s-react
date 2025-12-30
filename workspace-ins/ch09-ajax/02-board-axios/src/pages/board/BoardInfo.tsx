@@ -3,13 +3,13 @@ import type { BoardInfo as BoardInfoType, BoardInfoRes, ResData } from "@/types/
 import { getAxiosInstance } from "@/utils/axiosInstance";
 import { useEffect, useState } from "react";
 
+const axiosInstance = getAxiosInstance();
+
 function BoardInfo() {
   // data, error, isLoading 상태 관리
   const [data, setData] = useState<BoardInfoType | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
-
-  const axiosInstance = getAxiosInstance();
 
   const requestInfo = async () => {
     // TODO 2: API 서버에 1번 게시물의 상세정보를 axios 라이브러리로 요청을 보낸다.
