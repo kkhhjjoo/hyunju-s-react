@@ -1,10 +1,10 @@
 import CommentList from "@/pages/board/CommentList";
-import type { BoardInfo, BoardInfoRes, ResData } from "@/types/board";
+import type { BoardInfo as BoardInfoType, BoardInfoRes, ResData } from "@/types/board";
 import { useEffect, useState } from "react";
 
 function BoardInfo() {
   // TODO 4: data, error, isLoading 상태 관리
-  const [data, setData] = useState<BoardInfo | null>(null);
+  const [data, setData] = useState<BoardInfoType | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
