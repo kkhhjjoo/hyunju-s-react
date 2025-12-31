@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const axiosInstance = getAxiosInstance();
 
-function BoardInfo() {
+function BoardInfo({ postId }: { postId: number }) {
   const { data, isLoading, error } = useQuery({
     queryKey: ['posts', '3'],
     queryFn: () => axiosInstance.get<BoardInfoRes>('/posts/3'),
