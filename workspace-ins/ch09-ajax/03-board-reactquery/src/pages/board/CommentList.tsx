@@ -19,7 +19,7 @@ function CommentList({ postId }: { postId: number }) {
 
   return (
     <>
-      { isLoading && <><h3>로딩중...</h3><p>잠시만 기다려 주세요</p></> }
+      { isLoading && <><h3>댓글 목록 로딩중...</h3><p>잠시만 기다려 주세요</p></> }
       { error && <><h3>에러 발생!!!</h3><p>{ error.message }</p></> }
 
       { data && <>

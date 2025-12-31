@@ -10,11 +10,12 @@ function BoardInfo({ postId }: { postId: number }) {
     queryKey: ['posts', postId],
     queryFn: () => axiosInstance.get<BoardInfoRes>(`/posts/${postId}`),
     select: (response) => response.data.item,
+    staleTime: 1000 * 60, // 1분간 캐시
   });
 
   return (
     <>
-      { isLoading && <><h2>로딩중...</h2><p>잠시만 기다려 주세요</p></> }
+      { isLoading && <><h2>상세 정보 로딩중...</h2><p>잠시만 기다려 주세요</p></> }
       { error && <><h2>에러 발생!!!</h2><p>{ error.message }</p></> }
 
       { data && <>
