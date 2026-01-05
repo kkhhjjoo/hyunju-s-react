@@ -1,0 +1,23 @@
+meta {
+  name: 게시물 댓글 등록
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{url}}/posts/1/replies
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "김현주",
+    "content": "안녕하세요-김현주"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

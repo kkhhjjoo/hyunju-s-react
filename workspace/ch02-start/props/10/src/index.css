@@ -1,0 +1,36 @@
+.rounded-button {
+  position: relative;
+  background-color: #4CAF50; /* Green background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 6px 18px; /* Padding */
+  text-align: center; /* Center text */
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Display as inline-block */
+  font-size: 16px; /* Font size */
+  margin: 4px 2px; /* Margin */
+  cursor: pointer; /* Cursor pointer */
+  border-radius: 6px; /* Border radius */
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: -1;
+    bottom: 100%;
+    transform: translateY(50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+  }
+
+   &::before {
+    left: 0;
+   }
+
+   &::after {
+    right: 0;
+   }
+}

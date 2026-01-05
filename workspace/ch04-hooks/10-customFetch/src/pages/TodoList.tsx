@@ -1,0 +1,41 @@
+import useFetch from "@/hooks/useFetch";
+import type { TodoListRes } from "@/types/todo";
+import { PacmanLoader } from "react-spinners";
+
+function TodoList() {
+
+  const { data, error, loading } = useFetch<TodoListRes>({ url: '/todolist?delay=3000' });
+
+  const list = data?.items.map(item => (
+    <li key={ item._id }>
+      <a href={`/${item._id}`}>{ item.title }</a>
+    </li>
+  ));
+
+  return (
+    <>
+      <h1>10 customHook - useFetch, useAxios 커스텀 훅 사용</h1>
+      <h2>할일 목록</h2>
+
+      {/* <!-- 로딩중일 때 로딩중 메시지 표시 --> */}
+      { loading && 
+        <PacmanLoader
+          color="gold"
+          size={50}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      }
+      
+      {/* <!-- 에러가 있을 경우 빨간색으로 에러 메시지 표시 --> */}
+      { error && <p style={{color: 'red'}}>{ error.message }</p> }
+          
+      {/* <!-- 서버에서 받은 Todo 목록을 렌더링 --> */}
+      <ul>
+        { data && list }
+      </ul>
+    </>
+  );
+}
+
+export default TodoList;

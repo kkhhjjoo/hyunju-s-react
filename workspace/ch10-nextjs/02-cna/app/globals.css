@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@layer components {
+  .cs-active {
+    color: rgb(249, 155, 22);
+  }
+}
