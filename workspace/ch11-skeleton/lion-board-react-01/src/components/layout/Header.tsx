@@ -7,7 +7,7 @@ const Header = () => {
         <div className="w-1/2 order-1 md:w-auto">
           <Link to="/" className="flex items-center gap-2">
             <img className="mr-3 h-6 w-auto sm:h-9" src="/images/favicon.svg" width="24" height="24" alt="로고 이미지" />
-            <span className="text-lg font-bold">라이언 보드</span>
+            <span className="text-lg font-bold">라이언 보드 v.01</span>
           </Link>
         </div>
         <div className="w-auto order-2 text-base mt-4 md:mt-0">

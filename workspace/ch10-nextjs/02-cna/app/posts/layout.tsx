@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Suspense } from 'react';
 
 export default function PostLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
@@ -10,7 +11,9 @@ export default function PostLayout({ children }: Readonly<{ children: React.Reac
         </ul>
       </aside>
       <main className="flex-1 p-6 bg-gray-100 overflow-y-auto">
-        { children }
+         {/* <Suspense fallback={<p>서스펜스로 로딩중...</p>}> */}
+          { children}
+        {/* </Suspense> */}
       </main>
     </div>
   );
