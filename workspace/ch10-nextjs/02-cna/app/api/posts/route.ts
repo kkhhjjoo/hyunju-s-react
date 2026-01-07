@@ -1,10 +1,7 @@
+import { getPosts } from '@/lib/post';
+
 //GET  /api/posts
-export async function GET() { 
-  const res = await fetch(`https://fesp-api.koyeb.app/market/posts`, {
-    headers: {
-      'Client-id': 'openmarket'
-    }
-  });
-  const data = await res.json();
+export async function GET() {
+  const data = await getPosts();
   return Response.json(data);
 }
