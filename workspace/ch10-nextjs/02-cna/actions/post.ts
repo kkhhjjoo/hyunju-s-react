@@ -1,4 +1,8 @@
-'use server';//클라이언트 컴포넌트사 호출 가능한 서버 함수임을 명시
+'use server';
+import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
+
+//클라이언트 컴포넌트가 호출 가능한 서버 함수임을 명시
 
 //API 서버와 통신 작업
 //클라이언트 컨포넌트 전용
@@ -11,13 +15,22 @@ export async function createPost(formData: FormData) {
     method: 'POST',
     body: JSON.stringify({ title, content }),
     headers: {
-      'Client-id': 'openmarket',
+      'Client-Id': 'openmarket',
       'Content-Type': 'application/json',
     }
   });
-  const data = await res.json();
+
+  //캐시 무효화
+  revalidatePath('/posts');
+
+  redirect('/posts'); //게시물 목록으로 이동
+
+
+  
   // res.json().then((data) => { 
   //   return data.item;
   // })
-  return data.item;
+  
+  // const data = await res.json();
+  // return data.item;
 }

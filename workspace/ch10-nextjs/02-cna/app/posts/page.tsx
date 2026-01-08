@@ -1,3 +1,4 @@
+import { getPosts } from '@/lib/post';
 import { PostListItem } from '@/types';
 import { Metadata } from 'next';
 import Link from 'next/link';
@@ -12,8 +13,9 @@ export default async function PostList() {
   // await new Promise(resolve => setTimeout(resolve, 1000*3));
 
   //서버 컴포넌트에서는 route handler를 호출할 필요는 없음
-  const res = await fetch('http://localhost:3000/api/posts');
-  const data: PostListItem[] = await res.json();
+  const data = await getPosts();
+  // const res = await fetch('http://localhost:3000/api/posts');
+  // const data: PostListItem[] = await res.json();
 
   console.log(globalThis.navigator.userAgent);
 

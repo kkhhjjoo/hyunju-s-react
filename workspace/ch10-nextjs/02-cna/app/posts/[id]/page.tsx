@@ -4,11 +4,13 @@ import { Metadata } from 'next';
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   //TODO: API 서버 호출 필요
   const { id } = await params;
+  
+   const data = await getPost(id);
 
-  const data = {
-    title: `${id}번 게시물`,
-    content: '게시판 이용 수칙입니다.'
-  }
+  // const data = {
+  //   title: `${id}번 게시물`,
+  //   content: '게시판 이용 수칙입니다.'
+  // }
   return {
     title: data.title,
     description: data.content,
