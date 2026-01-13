@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 
 export default function Header() {
   const { user, resetUser } = useUserStore();
-  const { isDarkMode, toggleTheme, initializeTheme } = useThemeStore(); // Zustand 사용
+  const { isDarkMode, toggleTheme } = useThemeStore(); // Zustand 사용
 
   // 컴포넌트 마운트 시 DOM에 dark클래스 적용
   // useEffect(() => { 
