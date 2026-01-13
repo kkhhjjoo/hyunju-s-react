@@ -65,7 +65,7 @@ export const Button: React.FC<ButtonProps> = ({
   const classes = getButtonClasses({ bgColor, size, disabled, className })
   
   return (
-    <button className={classes} disabled={ disabled }>
+    <button className={classes} disabled={disabled} {...rest}>
       { children}
     </button>
   );

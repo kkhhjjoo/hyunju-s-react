@@ -8,10 +8,12 @@ interface ThemeStore {
   initializeTheme: () => void;
 }
 
-const useThemeStore = create<ThemeStore>()(
-  devtools(
+export const useThemeStore = create<ThemeStore>()(
+  devtools(persist(
     (set, get) => ({
-      isDarkMode: false,
+      isDarkMode: typeof window !== 'undefined' 
+      ? localStorage.getItem('theme-storage') === 'dark' 
+      : false,
       toggleTheme: () => set((state) => ({ isDarkMode: !state.isDarkMode })),
       // toggleTheme: () =>
       //   set((state) => {
@@ -36,7 +38,7 @@ const useThemeStore = create<ThemeStore>()(
       name: 'theme-storage',
     }
   )
+)
 );
-
 
 export default useThemeStore;
